@@ -6,6 +6,10 @@ variable service-principal-key-client-secret {
   type = string
 }
 
+variable admin_password {
+  type = string
+}
+
 variable organization_name {
   type = string
 }

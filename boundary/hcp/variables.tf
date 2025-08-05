@@ -13,3 +13,7 @@ variable cluster_name {
 variable project_name {
   type = string
 }
+
+variable admin_password {
+  type = string
+}
