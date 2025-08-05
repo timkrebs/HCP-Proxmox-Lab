@@ -1,0 +1,39 @@
+disable_mlock = true
+
+hcp_boundary_cluster_id = "${cluster_id}"
+
+listener "tcp" {
+  address = "0.0.0.0:9202"
+  purpose = "proxy"
+}
+
+listener "tcp" {
+  address = "0.0.0.0:9203"
+  purpose = "ops"
+  tls_disable = "true"
+}
+
+worker {
+  public_addr = "${public_addr}"
+  auth_storage_path = "/worker-${host_name}"
+  controller_generated_activation_token = "${activation_token}"
+  tags {
+    type = ["worker", "homelab"]
+    name = ["${worker_name}"]
+    host_name = ["${host_name}"]
+  }
+}
+
+events {
+  audit_enabled = true
+  observations_enabled = true
+  sysevents_enabled = false
+  sink "stderr" {
+    name = "default"
+    event_types = ["audit", "observation", "error"]
+    format = "cloudevents-json"
+  }
+}
+
+log_level = "info"
+log_format = "json"
