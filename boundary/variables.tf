@@ -1,4 +1,12 @@
-  variable organization_name {
+variable service-principal-key-client-id {
+  type = string
+}
+
+variable service-principal-key-client-secret {
+  type = string
+}
+
+variable organization_name {
   type = string
 }
 
