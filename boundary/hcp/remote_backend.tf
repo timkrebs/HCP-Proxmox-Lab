@@ -2,11 +2,11 @@ terraform {
   required_providers {
     hcp = {
       source = "hashicorp/hcp"
-      version = "~> 0.80.0"
+      version = "~> 0.106.0"
     }
     random = {
       source = "hashicorp/random"
-      version = "3.1.0"
+      version = "~> 3.5.1"
     }
   }
 }
