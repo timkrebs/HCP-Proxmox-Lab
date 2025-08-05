@@ -53,3 +53,7 @@ variable volume_size {
   type = string
   default = "128Mi"
 }
+
+variable boundary_cluster_url {
+  type = string
+}
