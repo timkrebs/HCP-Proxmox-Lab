@@ -7,13 +7,10 @@ terraform {
   }
 }
 
-provider "hcp" {
-  client_id     = var.service-principal-key-client-id
-  client_secret = var.service-principal-key-client-secret
-
-}
-
 module hcp {
   source = "./hcp"
+  project_name = var.project_name
   cluster_name = var.cluster_name
+  service-principal-key-client-id = var.service-principal-key-client-id
+  service-principal-key-client-secret = var.service-principal-key-client-secret
 }
